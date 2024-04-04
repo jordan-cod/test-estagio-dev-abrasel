@@ -1,5 +1,3 @@
-// pages/_app.js
-
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../styles/globals.css';
