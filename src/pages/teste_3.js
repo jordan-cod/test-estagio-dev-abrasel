@@ -168,7 +168,7 @@ export default function CadastroVeiculo() {
         <ul>
           {veiculos.map((veiculo, index) => (
             <li key={index}>
-              {veiculo.modelo}, {veiculo.anoFabricacao}
+              {veiculo.modelo}, {veiculo.anoFabricacao}, {veiculo.marca}
               <button onClick={() => excluirVeiculo(index)}>Excluir</button>
             </li>
           ))}
