@@ -1,5 +1,6 @@
-// CadastroVeiculo.js
 import { useEffect, useState } from 'react';
+import "../styles/globals.css";
+import styles from '@/styles/Teste_3.module.css';
 
 export default function CadastroVeiculo() {
   const [modelo, setModelo] = useState('');
@@ -10,7 +11,7 @@ export default function CadastroVeiculo() {
   const [passageirosMoto, setPassageirosMoto] = useState('1');
   const [mensagem, setMensagem] = useState('');
   const [enviando, setEnviando] = useState(false);
-  const [veiculos, setVeiculos] = useState([])
+  const [veiculos, setVeiculos] = useState([]);
 
   const salvarVeiculo = async () => {
     setEnviando(true);
@@ -56,7 +57,8 @@ export default function CadastroVeiculo() {
       if (!response.ok) {
         throw new Error('Erro ao cadastrar veículo');
       }
-      carregarVeiculos()
+
+      carregarVeiculos();
       setMensagem('Veículo cadastrado com sucesso!');
       setModelo('');
       setAnoFabricacao('');
@@ -70,6 +72,7 @@ export default function CadastroVeiculo() {
       setEnviando(false);
     }
   };
+
   const carregarVeiculos = async () => {
     try {
       const response = await fetch('/api/veiculos', {
@@ -90,6 +93,7 @@ export default function CadastroVeiculo() {
       setMensagem('Erro ao carregar veículos. Por favor, tente novamente.');
     }
   };
+
   const excluirVeiculo = async (index) => {
     try {
       const response = await fetch(`/api/veiculos?index=${index}`, {
@@ -98,11 +102,11 @@ export default function CadastroVeiculo() {
           'Content-Type': 'application/json',
         },
       });
-  
+
       if (!response.ok) {
         throw new Error('Erro ao excluir veículo');
       }
-  
+
       const veiculosAtualizados = [...veiculos];
       veiculosAtualizados.splice(index, 1);
       setVeiculos(veiculosAtualizados);
@@ -112,66 +116,64 @@ export default function CadastroVeiculo() {
       setMensagem('Erro ao excluir veículo. Por favor, tente novamente.');
     }
   };
+
   useEffect(() => {
     carregarVeiculos();
   }, []);
 
   return (
-    <div>
-      <h1>Cadastro de Veículo</h1>
-      <label>
-        Modelo:
-        <input type="text" value={modelo} onChange={(e) => setModelo(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Ano de Fabricação:
-        <input type="number" value={anoFabricacao} onChange={(e) => setAnoFabricacao(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Marca:
-        <input type="text" value={marca} onChange={(e) => setMarca(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Tipo de Veículo:
-        <select value={tipoVeiculo} onChange={(e) => setTipoVeiculo(e.target.value)}>
-          <option value="carro">Carro</option>
-          <option value="moto">Moto</option>
-        </select>
-      </label>
-      <br />
-      {tipoVeiculo === 'carro' && (
+    <main className={styles.main}>
+      <div>
+        <h1>Cadastro de Veículo</h1>
         <label>
-          Quantidade de Portas (entre 2 e 4):
-          <input type="number" value={quantidadePortas} onChange={(e) => setQuantidadePortas(e.target.value)} />
+          Modelo:
+          <input type="text" value={modelo} onChange={(e) => setModelo(e.target.value)} />
         </label>
-      )}
-      {tipoVeiculo === 'moto' && (
         <label>
-          Passageiros (1 ou 2):
-          <select value={passageirosMoto} onChange={(e) => setPassageirosMoto(e.target.value)}>
-            <option value="1">1</option>
-            <option value="2">2</option>
+          Ano de Fabricação:
+          <input type="number" value={anoFabricacao} onChange={(e) => setAnoFabricacao(e.target.value)} />
+        </label>
+        <label>
+          Marca:
+          <input type="text" value={marca} onChange={(e) => setMarca(e.target.value)} />
+        </label>
+        <label>
+          Tipo de Veículo:
+          <select value={tipoVeiculo} onChange={(e) => setTipoVeiculo(e.target.value)}>
+            <option value="carro">Carro</option>
+            <option value="moto">Moto</option>
           </select>
         </label>
-      )}
-      <br />
-      <button disabled={enviando} onClick={salvarVeiculo}>Salvar Veículo</button>
-      {mensagem && <p>{mensagem}</p>}
+        {tipoVeiculo === 'carro' && (
+          <label>
+            Quantidade de Portas (entre 2 e 4):
+            <input type="number" value={quantidadePortas} onChange={(e) => setQuantidadePortas(e.target.value)} />
+          </label>
+        )}
+        {tipoVeiculo === 'moto' && (
+          <label>
+            Passageiros (1 ou 2):
+            <select value={passageirosMoto} onChange={(e) => setPassageirosMoto(e.target.value)}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </label>
+        )}
+        <button disabled={enviando} onClick={salvarVeiculo}>Salvar Veículo</button>
+        {mensagem && <p>{mensagem}</p>}
+      </div>
 
       <div>
-      <h2>Veículos Cadastrados</h2>
-      <ul>
-        {veiculos.map((veiculo, index) => (
-          <li key={index}>
-            {veiculo.modelo},{veiculo.anoFabricacao}
-            <button onClick={() => excluirVeiculo(index)}>Excluir</button>
-          </li>
-        ))}
-      </ul>
+        <h2>Veículos Cadastrados</h2>
+        <ul>
+          {veiculos.map((veiculo, index) => (
+            <li key={index}>
+              {veiculo.modelo}, {veiculo.anoFabricacao}
+              <button onClick={() => excluirVeiculo(index)}>Excluir</button>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+    </main>
   );
 }

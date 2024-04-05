@@ -5,4 +5,11 @@
   min-height: 100vh;
   width: var(--max-width);
   row-gap: 30px;
+  padding-top: 200px;
+}
+
+@media screen and (max-width: 1130px) {
+  .main{
+      width: 100%;
+  }
 }

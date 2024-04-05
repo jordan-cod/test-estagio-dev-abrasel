@@ -1,4 +1,3 @@
-
 class Veiculo {
   constructor(modelo, anoFabricacao, marca) {
     this.modelo = modelo;

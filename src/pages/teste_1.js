@@ -1,5 +1,6 @@
-// pages/numeros_palindromos.js
-import styles from "../styles/page.module.css";
+'use client'
+import "../styles/globals.css";
+import styles from "../styles/Teste_1.module.css";
 import { useState } from 'react';
 
 const NumerosPalindromos = () => {
@@ -24,21 +25,30 @@ const NumerosPalindromos = () => {
 
   return (
     <main className={styles.main}>
-      <h1>Números Palíndromos</h1>
-      <div>
-      <label>
-        Início do Intervalo:
-        <input type="number" value={inicioIntervalo} onChange={(event) => setInicioIntervalo(event.target.value)}/>
-      </label>
-      <label>
-        Fim do Intervalo:
-        <input type="number" value={fimIntervalo} onChange={(event) => setFimIntervalo(event.target.value)}/>
-      </label>
-      <button onClick={encontrarPalindromos}>Encontrar Palíndromos</button>
-      <h2>Números Palíndromos encontrados:</h2>
-      <ul>
-              <li>{palindromosEncontrados.join(', ')}</li>
-            </ul>
+      <div className={styles.container_Teste}>
+        <h1>Números Palíndromos</h1>
+        <div className={styles.form}>
+          <div>
+            <div>
+              <label>
+                Início do Intervalo:
+              </label>
+              <input type="number" value={inicioIntervalo} onChange={(event) => setInicioIntervalo(event.target.value)} />
+            </div>
+            <div>
+              <label>
+                Fim do Intervalo:
+              </label>
+              <input type="number" value={fimIntervalo} onChange={(event) => setFimIntervalo(event.target.value)} />
+            </div>
+
+            <button onClick={encontrarPalindromos}>Encontrar Palíndromos</button>
+          </div>
+          <h2>Números Palíndromos encontrados:</h2>
+          <ul>
+            <li>{palindromosEncontrados.join(', ')}</li>
+          </ul>
+        </div>
       </div>
     </main>
   );

@@ -1,4 +1,7 @@
+'use client'
 import { useState } from 'react';
+import "../styles/globals.css";
+import styles from '@/styles/Teste_2.module.css'
 
 export default function Troco() {
   const [valorCompra, setValorCompra] = useState('');
@@ -33,24 +36,27 @@ export default function Troco() {
   };
 
   return (
-    <div>
+    <main className={styles.main}>
       <h1>Calculadora de Troco</h1>
-      <label>
-        Valor da Compra:
-        <input type="number" step="0.01" value={valorCompra} onChange={(e) => setValorCompra(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Valor Entregue:
-        <input type="number" step="0.01" value={valorEntregue} onChange={(e) => setValorEntregue(e.target.value)} />
-      </label>
-      <br />
-      <button onClick={calcularTroco}>Calcular Troco</button>
-      <h2>Detalhes do Troco:</h2>
-      <p>Valor do Troco: R$ {troco.toFixed(2)}</p>
-      <p>Notas de R$ 100: {notas100}</p>
-      <p>Notas de R$ 10: {notas10}</p>
-      <p>Notas de R$ 1: {notas1}</p>
-    </div>
+      <div className={styles.container_Teste}>
+        <div>
+          <label>Valor da Compra:</label>
+          <input type="number" step="0.01" value={valorCompra} onChange={(e) => setValorCompra(e.target.value)} />
+        </div>
+        <div>
+          <label>Valor Entregue:</label>
+          <input type="number" step="0.01" value={valorEntregue} onChange={(e) => setValorEntregue(e.target.value)} />
+        </div>
+        <button onClick={calcularTroco}>Calcular Troco</button>
+        <div>
+          <h2>Detalhes do Troco:</h2>
+          <p>Valor do Troco: R$ {troco.toFixed(2)}</p>
+          <p>Notas de R$ 100: {notas100}</p>
+          <p>Notas de R$ 10: {notas10}</p>
+          <p>Notas de R$ 1: {notas1}</p>
+        </div>
+
+      </div>
+    </main>
   );
 }

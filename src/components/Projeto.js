@@ -1,36 +1,39 @@
-// Projeto.js
+import { useState } from "react";
 import styles from "../styles/Projeto.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import Link from 'next/link';
 
-const Projeto = ({ id, titulo }) => {
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleDetails = () => {
-    setIsOpen(!isOpen);
+const Projeto = ({ id, titulo, descricao, link, data}) => {
+  const [menuAberto, setMenuAberto] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuAberto(!menuAberto);
   };
-
   return (
     <div className={styles.Projeto}>
-      <div className={styles.header} onClick={toggleDetails}>
-        <p>{id}</p>
-        <p>{titulo}</p>
-        <Image
-          src="/angle-down-solid.svg"
-          alt="down arrow"
-          width={30}
-          height={30}
-          priority
-          className={isOpen ? styles.rotate : ""}
-        />
-      </div>
-      {isOpen && (
-        <div className={styles.details}>
-          <p>Detalhes do projeto {id}</p>
-          {/* Aqui você pode adicionar mais conteúdo detalhado, se necessário */}
+      <p className={styles.id}>{id}</p>
+      <p className={styles.Titulo}>{titulo}</p>
+      <Image
+        onClick={toggleMenu}
+        src="/angle-down-solid.svg"
+        alt="down arrow"
+        width={30}
+        height={30}
+        priority
+      />
+      {menuAberto && (
+        <div className={styles.Menu}>
+          <h3>Descrição:</h3>
+          <p>{descricao}</p>
+          <div className={styles.info}>
+            <p>Conclusão:{data}</p>
+            <Link href={link}>Solução</Link>
+          </div>
         </div>
       )}
     </div>
+    
   );
 };
 
