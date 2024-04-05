@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Desafio de Desenvolvimento - Frontend
 
-## Getting Started
+Este é o repositório da minha solução para o desafio de desenvolvimento frontend proposto.
 
-First, run the development server:
+## Sobre o Desafio
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O desafio consiste em desenvolver uma aplicação web com foco no frontend, mas a inclusão de um backend é considerada um diferencial. O layout é livre, incentivando a criatividade e um bom uso de UI/UX. A aplicação deve resolver quatro problemas específicos:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Números Palíndromos**: Desenvolver um algoritmo que imprima todos os números palíndromos dentro de um intervalo escolhido pelo usuário.
+2. **Calculadora de Troco**: Escrever um algoritmo que calcule o troco a ser devolvido em notas de 1, 10 e 100 reais, considerando uma compra e o valor entregue pelo cliente.
+3. **Controle de Veículos**: Criar uma interface e classes para representar veículos, com atributos específicos para carros e motos. Os dados devem ser preenchidos pelo usuário e salvos em um arquivo JSON.
+4. **Consulta de CEPs**: Permitir que o usuário informe 5 CEPs, consumindo a API ViaCep para obter dados sobre eles. Os dados devem ser exibidos na tela após o processamento.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Tecnologias Utilizadas
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- JavaScript
+- Next.js
+- HTML
+- CSS
 
-## Learn More
+## Estrutura do Projeto
 
-To learn more about Next.js, take a look at the following resources:
+O projeto está estruturado da seguinte forma:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/`: Contém o código-fonte da aplicação.
+- `public/`: Contém os arquivos estáticos e o arquivo HTML principal.
+- `styles/`: Contém os arquivos de estilos CSS.
+- `data/`: Contém os arquivos Json da aplicação.
+- `models/`: Contém os models criados para a aplicação.
+- `page/`: Contém todas as páginas criadas para a aplicação.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Como Executar
 
-## Deploy on Vercel
+1. Clone este repositório:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`git clone https://github.com/seu-usuario/desafio-frontend.git`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. Instale as dependências:
+
+`cd desafio-frontend`
+`npm install`
+
+3. Execute a aplicação:
+
+`npm start`
+
+4. Acesse a aplicação em seu navegador através do endereço:
+
+<http://localhost:3000>
+
+
+
