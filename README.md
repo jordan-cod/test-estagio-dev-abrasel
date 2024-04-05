@@ -37,7 +37,7 @@ O projeto está estruturado da seguinte forma:
 
 2. Instale as dependências:
 
-`cd desafio-frontend`
+`cd test-estagio-dev-abrasel`
 `npm install`
 
 3. Execute a aplicação:
