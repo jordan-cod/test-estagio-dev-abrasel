@@ -33,7 +33,7 @@ O projeto está estruturado da seguinte forma:
 
 1. Clone este repositório:
 
-`git clone https://github.com/seu-usuario/desafio-frontend.git`
+`git clone https://github.com/jordan-cod/desafio-frontend.git`
 
 2. Instale as dependências:
 
